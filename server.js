@@ -10,9 +10,9 @@ const app = express()
 
 
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:5174'], 
+  origin: 'https://leavemanage-delta.vercel.app',
   credentials: true
-}))
+}));
 app.use(express.json())
 
 app.use('/api/auth', require('./routes/authRoutes'))
