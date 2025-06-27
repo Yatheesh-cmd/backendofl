@@ -37,7 +37,22 @@ exports.register = async (req, res) => {
         from: process.env.EMAIL_USER,
         to: email,
         subject: 'Welcome to LeaveHub',
-        text: `Hello ${name}, your account has been created successfully.`,
+        html: `
+          <div style="font-family: Arial, sans-serif; padding: 20px; max-width: 600px; margin: auto; border: 1px solid #e0e0e0;">
+            <div style="text-align: center;">
+              <img src="https://cdn-icons-png.flaticon.com/512/7603/7603479.png" alt="LeaveHub Logo" style="width: 100px; margin-bottom: 10px;">
+              <h1 style="color: #333; font-size: 24px;">Welcome Leave Management Portal</h1>
+            </div>
+            <div style="padding: 20px; background-color: #f9f9f9; border-radius: 5px;">
+              <p style="font-size: 16px; color: #333;">Hello ${name},</p>
+              <p style="font-size: 16px; color: #333;">Your account has been created successfully. Welcome to LeaveHub, your one-stop portal for managing leave requests.</p>
+            </div>
+            <div style="text-align: center; margin-top: 20px; font-size: 14px; color: #666;">
+              <p>Thank you for using LeaveHub!</p>
+              <p>Contact us at <a href="mailto:support@leavehub.com">support@leavehub.com</a> for assistance.</p>
+            </div>
+          </div>
+        `,
       })
     } catch (emailError) {
       console.error('Email sending failed:', emailError.message)
